@@ -4,16 +4,22 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Trae-Skill-blue" alt="Trae Skill">
-  <img src="https://img.shields.io/badge/类型-思考优化-green" alt="思考优化">
-  <img src="https://img.shields.io/badge/复杂度-L1/L2/L3-orange" alt="三级复杂度">
+  <a href="https://github.com/qingjian0/sharp-think"><img src="https://img.shields.io/badge/GitHub-sharp--think-black?logo=github" alt="GitHub"></a>
+  <img src="https://img.shields.io/badge/Trae-Skill-2496ED?logo=visualstudiocode" alt="Trae Skill">
+  <img src="https://img.shields.io/badge/License-MIT-green" alt="MIT License">
+  <img src="https://img.shields.io/badge/复杂度-L1/L2/L3-FF9900" alt="三级复杂度">
+</p>
+
+<p align="center">
+  <b>English</b> | <a href="#中文文档">中文</a>
 </p>
 
 ---
 
-## 它是什么？
+> [!NOTE]
+> **Sharp Think** 是一个为 [Trae](https://trae.ai/) 设计的 Skill，通过注入结构化思考框架到 AI 的推理过程中，让简单问题秒答、复杂问题深度分析、永远不跑偏。
 
-Sharp Think 是一个为 [Trae](https://trae.ai/) 设计的 Skill，通过注入**结构化思考框架**到 AI 的推理过程中，解决四个常见痛点：
+## ✨ Features
 
 | 痛点 | Sharp Think 的解法 |
 |------|-------------------|
@@ -22,129 +28,246 @@ Sharp Think 是一个为 [Trae](https://trae.ai/) 设计的 Skill，通过注入
 | 🏊 **思考不深** | L3 强制 7 步推理 + 认知偏差自检 + 多方案对比 |
 | 📝 **缺乏结构** | 统一三阶段流程 + 标准化输出格式 |
 
-## 工作原理
+## 📋 Table of Contents
+
+- [Features](#-features)
+- [How It Works](#-how-it-works)
+- [Complexity Levels](#-complexity-levels)
+- [Installation](#-installation)
+- [Usage](#-usage)
+- [Project Structure](#-project-structure)
+- [Reference Cards](#-reference-cards)
+- [Troubleshooting](#-troubleshooting)
+- [Contributing](#-contributing)
+- [License](#-license)
+
+## 🔄 How It Works
 
 ```
-用户提问
+User Query
    │
    ▼
-┌─────────────────┐
-│  阶段 1：快速评估  │  ← 10 秒内完成
-│  · 一句话复述      │
-│  · 复杂度分级      │
-│  · 歧义检测        │
-└────────┬────────┘
-         │
-    ┌────┴────┬──────────┐
-    ▼         ▼          ▼
-   L1        L2         L3
-  直接回答  标准分析    深度分析
-    │     4步推理     7步推理
-    │         │       + 参考卡片
-    │         │       + 偏差自检
-    ▼         ▼          ▼
-┌─────────────────┐
-│  阶段 3：质量校验  │
-│  · 方向正确 ✓     │
-│  · 可执行性 ✓     │
-│  · 边界考虑 ✓     │
-│  · 结构清晰 ✓     │
-└─────────────────┘
+┌──────────────────────┐
+│  Phase 1: Quick Assess │  ← Complete in 10 seconds
+│  · Restate intent      │
+│  · Classify complexity │
+│  · Detect ambiguity    │
+└──────────┬───────────┘
+           │
+      ┌────┴────┬──────────┐
+      ▼         ▼          ▼
+     L1        L2         L3
+   Direct    Standard    Deep
+   Answer    Analysis    Analysis
+      │     4 steps    7 steps
+      │         │      + cards
+      │         │      + bias check
+      ▼         ▼          ▼
+┌──────────────────────┐
+│  Phase 3: Quality Gate │
+│  · Right direction  ✓  │
+│  · Actionable       ✓  │
+│  · Edge cases       ✓  │
+│  · Clear structure  ✓  │
+└──────────────────────┘
 ```
 
-## 三级复杂度
+## 📊 Complexity Levels
 
-| 级别 | 适用场景 | 思考预算 | 示例 |
-|------|---------|---------|------|
-| **L1 直接** | 事实查询、单步操作 | 直接回答 | "翻译这段话"、"当前时间" |
-| **L2 标准** | 2-5 步推理、有明确约束 | 4 步推理 | "写一份周报"、"分析数据趋势" |
-| **L3 深度** | 多方案对比、架构设计 | 完整推理链 | "设计增长方案"、"评估技术选型" |
+| Level | When to Use | Thinking Budget | Example |
+|-------|------------|-----------------|---------|
+| **L1 Direct** | Factual queries, single-step ops | Answer immediately | "Translate this", "Current time" |
+| **L2 Standard** | 2-5 step reasoning, clear constraints | 4-step framework | "Write a weekly report", "Analyze trends" |
+| **L3 Deep** | Multi-option comparison, architecture design | Full chain + reference cards | "Design growth plan", "Evaluate tech stack" |
 
-## 安装
+## 📦 Installation
 
-### 方式一：直接复制（推荐）
+### Option 1: Manual Copy (Recommended)
 
-将 `sharp-think/` 文件夹复制到你的 Trae 项目的 `.trae/skills/` 目录下：
+Copy the entire project into your Trae project's `.trae/skills/` directory:
 
 ```bash
-# 在你的 Trae 项目根目录执行
+# Navigate to your Trae project root
+cd /path/to/your/project
+
+# Create skills directory if not exists
 mkdir -p .trae/skills
-cp -r sharp-think .trae/skills/
+
+# Copy sharp-think into it
+cp -r /path/to/sharp-think .trae/skills/sharp-think
 ```
 
-### 方式二：Git Clone
+The final structure should look like:
+
+```
+your-project/
+└── .trae/
+    └── skills/
+        └── sharp-think/
+            ├── SKILL.md
+            └── references/
+                ├── cognitive-biases.md
+                ├── complexity-scaling.md
+                ├── decision-frameworks.md
+                └── quality-checklist.md
+```
+
+### Option 2: Git Clone
 
 ```bash
-git clone https://github.com/qingjian0/sharp-think.git
-# 然后将 sharp-think/ 复制到 .trae/skills/
+# Clone to a temp directory
+git clone https://github.com/qingjian0/sharp-think.git /tmp/sharp-think
+
+# Copy to your Trae project
+mkdir -p /path/to/your/project/.trae/skills
+cp -r /tmp/sharp-think /path/to/your/project/.trae/skills/sharp-think
+
+# Clean up
+rm -rf /tmp/sharp-think
+```
+
+### Option 3: Direct Download
+
+Download the [latest release](https://github.com/qingjian0/sharp-think/releases) and extract to `.trae/skills/sharp-think/`.
+
+> [!TIP]
+> After installation, the Skill will **auto-trigger** when your queries involve keywords like: 分析、方案、规划、决策、设计、评估、优化、最佳实践, etc.
+
+## 🚀 Usage
+
+### Trigger Keywords
+
+The Skill auto-activates when your query contains these keywords:
+
+| 中文 | English |
+|------|---------|
+| 帮我分析 / 思考 | analyze / think through |
+| 写方案 / 设计 | design / plan |
+| 做决策 / 对比 | decide / compare |
+| 最佳实践 / 优化建议 | best practices / optimize |
+| 架构设计 / 技术选型 | architecture / tech stack |
+| 问题诊断 / 根因分析 | diagnose / root cause |
+
+### Quick Examples
+
+**L1 — Direct Answer:**
+
+> **You**: 把这段话翻译成英文
+>
+> **AI**: *(Translates directly, no reasoning overhead)*
+
+**L2 — Standard Analysis:**
+
+> **You**: 帮我写一份项目周报
+>
+> **AI**: Follows 4-step framework → Goal → Constraints → Solution → Verification
+
+**L3 — Deep Analysis:**
+
+> **You**: 我们应该用 React 还是 Vue 重构前端？
+>
+> **AI**: Follows 7-step framework → Problem Definition → Root Cause → Option Exploration (2+) → Recommendation → Implementation Path → Risk Assessment → Success Criteria
+>
+> Automatically references cognitive bias checklist and decision matrix.
+
+### Special Commands
+
+| You Say | AI Response |
+|---------|-------------|
+| "快一点" / "简单回答" | Downgrade one complexity level (L3→L2, L2→L1) |
+| "详细分析" / "深入思考" | Upgrade one complexity level (L1→L2, L2→L3) |
+| "为什么？" | Trace back to reasoning chain, show derivation |
+| Multiple sub-questions | Split → Classify each → Process by dependency → Synthesize |
+
+## 📁 Project Structure
+
+```
+sharp-think/
+├── SKILL.md                          # Core thinking framework (Skill entry point)
+├── README.md                         # This file
+├── LICENSE                           # MIT License
+└── references/                       # Reference card library (loaded on demand)
+    ├── cognitive-biases.md           # 12 cognitive bias detection checklist
+    ├── decision-frameworks.md        # 7 decision frameworks (SWOT, 5-Why, etc.)
+    ├── quality-checklist.md          # Quality checklists for 5 output types
+    └── complexity-scaling.md         # Detailed complexity classification guide
+```
+
+## 🗂️ Reference Cards
+
+| Card | Content | When to Use |
+|------|---------|-------------|
+| 🧩 [Cognitive Biases](references/cognitive-biases.md) | 12 common biases + self-check methods | L3 + decision/judgment tasks |
+| 📊 [Decision Frameworks](references/decision-frameworks.md) | SWOT, Decision Matrix, 5-Why, First Principles, etc. | L3 + multi-option comparison |
+| ✅ [Quality Checklist](references/quality-checklist.md) | Check templates for docs/analysis/plans/creative/code | All L2+ tasks before output |
+| 📏 [Complexity Scaling](references/complexity-scaling.md) | Detailed L1/L2/L3 criteria, edge cases, dynamic adjustment | First use or uncertain classification |
+
+## 🔧 Troubleshooting
+
+| Problem | Solution |
+|---------|----------|
+| Skill not auto-triggering | Check that `SKILL.md` is inside `.trae/skills/sharp-think/` and the front matter is intact |
+| AI still overthinking simple questions | Verify the complexity classification table is present in SKILL.md |
+| Reference cards not being used | Ensure `references/` folder is in the same directory as `SKILL.md` |
+| Output format inconsistent | Check that output format section in SKILL.md is not modified |
+
+## 🤝 Contributing
+
+Contributions are welcome! Here's how you can help:
+
+1. **Report bugs** — Open an [Issue](https://github.com/qingjian0/sharp-think/issues) describing the problem
+2. **Suggest improvements** — Share your ideas for new reference cards or framework enhancements
+3. **Submit PRs** — Fork, modify, and create a Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
+
+---
+
+<a id="中文文档"></a>
+
+## 🇨🇳 中文文档
+
+### 这是什么？
+
+Sharp Think 是一个为 [Trae](https://trae.ai/) 设计的 Skill，通过注入**结构化思考框架**到 AI 的推理过程中，解决四个常见痛点：
+
+| 痛点 | 解法 |
+|------|------|
+| 🎯 方向跑偏 | 强制「一句话复述」+ 歧义检测，理解错就追问 |
+| 🐢 过度思考 | L1/L2/L3 复杂度分级，简单问题直接回答不展开 |
+| 🏊 思考不深 | L3 强制 7 步推理 + 认知偏差自检 + 多方案对比 |
+| 📝 缺乏结构 | 统一三阶段流程 + 标准化输出格式 |
+
+### 设计理念
+
+- **先评估后思考** — 永远先判断问题复杂度，再决定思考深度
+- **先对齐后执行** — 确保理解正确后再展开推理
+- **结构化输出** — 按统一模板组织思考过程和最终输出
+- **质量自检** — 输出前必须通过校验检查点
+
+### 安装方式
+
+将项目复制到你的 Trae 项目的 `.trae/skills/` 目录下：
+
+```bash
+# 进入你的 Trae 项目根目录
+cd /path/to/your/project
+
+# 创建 skills 目录（如果不存在）
+mkdir -p .trae/skills
+
+# 复制 sharp-think
+cp -r /path/to/sharp-think .trae/skills/sharp-think
 ```
 
 安装后 Skill 会在你提问涉及**分析、方案、规划、决策**等关键词时自动触发。
 
-## 文件结构
-
-```
-sharp-think/
-├── SKILL.md                          # 核心思考框架（Skill 入口）
-└── references/                       # 参考卡片库（按需引用）
-    ├── cognitive-biases.md           # 12 种认知偏差检测清单
-    ├── decision-frameworks.md        # 7 种决策框架速查
-    ├── quality-checklist.md          # 5 类输出质量检查清单
-    └── complexity-scaling.md         # 复杂度分级详细标准
-```
-
-## 参考卡片
-
-| 卡片 | 内容 | 何时引用 |
-|------|------|---------|
-| 🧩 [认知偏差检测](references/cognitive-biases.md) | 确认偏差、锚定效应、沉没成本等 12 种偏差的自检方法 | L3 + 涉及决策/判断 |
-| 📊 [决策框架速查](references/decision-frameworks.md) | SWOT、决策矩阵、5-Why、第一性原理等 7 种框架 | L3 + 多方案对比 |
-| ✅ [质量检查清单](references/quality-checklist.md) | 文档/分析/方案/创意/代码 5 类输出检查模板 | 所有 L2+ 任务 |
-| 📏 [复杂度分级标准](references/complexity-scaling.md) | L1/L2/L3 详细判定标准、边界案例、动态调整 | 首次使用或分级不确定时 |
-
-## 使用示例
-
-### 简单问题（L1）
-
-> **用户**：把这段话翻译成英文
->
-> **Sharp Think**：直接翻译，不展开推理。
-
-### 标准分析（L2）
-
-> **用户**：帮我写一份项目周报
->
-> **Sharp Think**：
-> 1. 目标 → 2. 约束 → 3. 方案 → 4. 验证，4 步快速完成。
-
-### 深度分析（L3）
-
-> **用户**：我们应该用 React 还是 Vue 重构前端？
->
-> **Sharp Think**：
-> 1. 问题定义 → 2. 根因分析 → 3. 方案探索（至少 2 个）→ 4. 推荐 → 5. 实施路径 → 6. 风险预判 → 7. 成功标准
->
-> 自动引用认知偏差清单和决策矩阵进行深度分析。
-
-## 特殊指令
+### 使用示例
 
 | 你说的话 | AI 的反应 |
 |---------|----------|
 | "快一点" / "简单回答" | 自动降级一个复杂度 |
 | "详细分析" / "深入思考" | 自动升级一个复杂度 |
 | "为什么？" | 回溯推理链，展示推导过程 |
-
-## 设计理念
-
-- **先评估后思考** — 永远先判断复杂度，再决定思考深度
-- **先对齐后执行** — 确保理解正确后再展开推理
-- **结构化输出** — 按统一模板组织思考过程和最终输出
-- **质量自检** — 输出前必须通过校验检查点
-
-## 许可证
-
-MIT License
-
-## 贡献
-
-欢迎提交 Issue 和 PR 来完善这个 Skill！
