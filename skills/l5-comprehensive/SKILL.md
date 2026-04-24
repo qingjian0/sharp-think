@@ -75,6 +75,7 @@ L5 任务建议分阶段确认：
 - 必须参考 → `references/cognitive-biases.md`
 - 必须参考 → `references/decision-frameworks.md`
 - 必须参考 → `references/quality-checklist.md`
+- 子任务数据量较大时 → `references/subtask-guide.md`（数据处理优化策略）
 
 ## 输出模板
 
